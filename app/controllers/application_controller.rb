@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(resource)
+    sleep(10)
     stored_location_for(resource) || homes_top_path
   end
 
