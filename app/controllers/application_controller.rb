@@ -2,7 +2,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(resource)
-    stored_location_for(resource) || homes_top_path
+    path = stored_location_for(resource) || root_path
+    logger.info "after_sign_in_path: #{path}"
+    path
   end
 
   before_action :store_user_location!, if: :storable_location?
