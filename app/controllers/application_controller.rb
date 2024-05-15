@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     path = stored_location_for(resource) || root_path
     logger.info "after_sign_in_path: #{path}"
+    flash[:notice] = "ログインに成功しました。"
     path
   end
 
