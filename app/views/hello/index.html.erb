@@ -1,4 +1,18 @@
 <div class="codespaces">
+      <header>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "サインアップ", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path %>
+        </li>
+      <% end %>
+    </header>
   <header class="codespaces-header">
     <img class="codespaces-logo"
          src="railstutorial.png"
